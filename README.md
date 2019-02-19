@@ -1,7 +1,7 @@
 # springboot-clients-and-their-cities
 **Spring Boot, Maven, JPA e H2
 
-## System Eequirements
+## System Requirements
 
 API REST:
 * City registration
