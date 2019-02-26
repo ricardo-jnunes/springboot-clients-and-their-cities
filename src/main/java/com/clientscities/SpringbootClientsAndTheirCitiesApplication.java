@@ -1,4 +1,4 @@
-package com.clientscities.project;
+package com.clientscities;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
