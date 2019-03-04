@@ -1,21 +1,21 @@
-package com.clientscities.dto;
+package com.clientscities.models;
 
 import java.util.Date;
 
 import com.clientscities.constants.Gender;
 
-public class Client {
+public class ClientDTO {
 
-	private Integer id;
+	private Long id;
 	private String fullName;
 	private Date birthDate;
 	private Gender gender;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
