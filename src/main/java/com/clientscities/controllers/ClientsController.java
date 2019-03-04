@@ -20,6 +20,12 @@ public class ClientsController {
 	@Autowired
 	ClientsService clientsService;
 
+	@GetMapping("/{clientId}")
+	public ResponseEntity<ClientDTO> findById(@PathVariable("clientId") Long clientId) {
+		ClientDTO clientDTO = clientsService.findById(clientId);
+		return new ResponseEntity<ClientDTO>(clientDTO, HttpStatus.OK);
+	}
+
 	@GetMapping("/fullname/{name}")
 	public ResponseEntity<List<ClientDTO>> findByFullName(@PathVariable("name") String fullName) {
 		List<ClientDTO> clients = clientsService.findByFullName(fullName);
