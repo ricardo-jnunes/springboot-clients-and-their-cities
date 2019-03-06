@@ -1,7 +1,10 @@
 # springboot-clients-and-their-cities
-** Spring Boot, Maven, JPA e H2
+A project with two distinct applications made with Spring Boot using Maven, with the H2 Runtime database and JPA.
+Also with use of RabbitMQ and REST APIs for communications between these applications.
 
-## System Requirements
+Automated documentation with Swagger + Springfox
+
+## System Functionalities
 
 API REST:
 * City registration
@@ -12,6 +15,9 @@ API REST:
 * Find client by Id
 * Remove client
 * Change client name
+
+RabbitMQ:
+* Change name of user/client through City application
 
 Consider registering with basic data:
 * Cities: name and state
