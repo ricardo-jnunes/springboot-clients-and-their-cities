@@ -1,5 +1,5 @@
 # springboot-clients-and-their-cities
-**Spring Boot, Maven, JPA e H2
+** Spring Boot, Maven, JPA e H2
 
 ## System Requirements
 
