@@ -27,4 +27,10 @@ public class CitiesService {
 		return clientDTO;
 	}
 
+	public void save(CityDTO cityDTO) {
+		ModelMapper modelMapper = new ModelMapper();
+		CityEntity clientEntity = modelMapper.map(cityDTO, CityEntity.class);
+		cityRepository.save(clientEntity);
+	}
+
 }
