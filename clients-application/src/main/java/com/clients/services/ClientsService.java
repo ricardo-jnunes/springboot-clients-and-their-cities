@@ -24,8 +24,9 @@ public class ClientsService {
 	public ClientDTO findById(Long clientId) {
 		ModelMapper modelMapper = new ModelMapper();
 		Optional<ClientEntity> clientEntity = clientRepository.findById(clientId);
-		ClientDTO clientDTO = modelMapper
-				.map(clientEntity.orElseThrow(() -> new EntityNotFoundException("Client not found in database.")), ClientDTO.class);
+		ClientDTO clientDTO = modelMapper.map(
+				clientEntity.orElseThrow(() -> new EntityNotFoundException("Client not found in database.")),
+				ClientDTO.class);
 		return clientDTO;
 	}
 
@@ -35,6 +36,12 @@ public class ClientsService {
 		List<ClientEntity> clientEntity = clientRepository.findByFullName(fullName);
 		List<ClientDTO> clientsDTO = new ModelMapper().map(clientEntity, listType);
 		return clientsDTO;
+	}
+
+	public void save(ClientDTO clientDTO) {
+		ModelMapper modelMapper = new ModelMapper();
+		ClientEntity clientEntity = modelMapper.map(clientDTO, ClientEntity.class);
+		clientRepository.save(clientEntity);
 	}
 
 }
