@@ -16,6 +16,9 @@ import com.cities.repositories.CityRepository;
 public class CitiesService {
 
 	@Autowired
+	private RabbitMQMessageSender rmqMessageSender;
+
+	@Autowired
 	CityRepository cityRepository;
 
 	public CityDTO findById(Long clientId) {
@@ -31,6 +34,10 @@ public class CitiesService {
 		ModelMapper modelMapper = new ModelMapper();
 		CityEntity clientEntity = modelMapper.map(cityDTO, CityEntity.class);
 		cityRepository.save(clientEntity);
+	}
+
+	public void sendToRabbitMQ(String value) {
+		rmqMessageSender.send(value);
 	}
 
 }

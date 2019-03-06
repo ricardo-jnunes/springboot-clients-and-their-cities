@@ -3,6 +3,12 @@ A project with two distinct applications made with Spring Boot using Maven, with
 Also with use of RabbitMQ and REST APIs for communications between these applications.
 
 Automated documentation with Swagger + Springfox
+## Prerequisites
+Rabbit already installed and running on ports:
+```
+15672
+5672
+```
 
 ## System Functionalities
 

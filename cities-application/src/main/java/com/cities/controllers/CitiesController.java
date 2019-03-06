@@ -36,4 +36,10 @@ public class CitiesController {
 		return ResponseEntity.created(location).build();
 	}
 
+	@PostMapping("/queue")
+	public ResponseEntity<String> sendToRabbitMQ(@RequestBody String value) {
+		citiesService.sendToRabbitMQ(value);
+		return new ResponseEntity<String>(value, HttpStatus.OK);
+	}
+
 }
