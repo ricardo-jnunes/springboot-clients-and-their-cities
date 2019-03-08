@@ -5,6 +5,8 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cities.configuration.RabbitMQConfiguration;
+
 @Service
 public class RabbitMQMessageSender {
 
@@ -15,6 +17,6 @@ public class RabbitMQMessageSender {
 	private Queue queue;
 
 	public void send(String value) {
-		rabbitTemplate.convertAndSend(this.queue.getName(), value);
+		rabbitTemplate.convertAndSend(RabbitMQConfiguration.CLIENTS_CITIES_EXCHANGE, this.queue.getName(), value);
 	}
 }
