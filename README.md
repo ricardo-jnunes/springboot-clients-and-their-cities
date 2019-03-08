@@ -13,18 +13,15 @@ Rabbit already installed and running on ports:
 ## Accessing the Application
 
 Cities Application
-
-Swagger: http://localhost:8081/swagger-ui.html#/
-H2 Embed: http://localhost:8082/h2-console
+* Swagger: http://localhost:8081/swagger-ui.html#/
+* H2 Embed: http://localhost:8082/h2-console
 
 Clients Application
-
-http://localhost:8082/swagger-ui.html#/
-MongoDB accessing with MongoDB Compass
+* http://localhost:8082/swagger-ui.html#/
+* MongoDB accessing with MongoDB Compass
 
 RabbitMQ
-
-http://localhost:15672/#/
+* http://localhost:15672/#/
 
 ## System Functionalities
 
