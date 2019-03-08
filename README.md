@@ -1,5 +1,5 @@
 # springboot-clients-and-their-cities
-A project with two distinct applications made with Spring Boot using Maven, with the H2 Runtime database and JPA.
+A project with two distinct applications made with Spring Boot using Maven, with the H2 embedded using JPA and MongoDB embedded database.
 Also with use of RabbitMQ and REST APIs for communications between these applications.
 
 Automated documentation with Swagger + Springfox
@@ -9,6 +9,26 @@ Rabbit already installed and running on ports:
 15672
 5672
 ```
+
+## Accessing the Application
+
+Applications Swagger
+Cities App
+http://localhost:8081/swagger-ui.html#/
+
+Clients App
+http://localhost:8082/swagger-ui.html#/
+
+RabbitMQ
+http://localhost:15672/#/
+
+Databases UI
+
+Cities App with H2
+http://localhost:8082/h2-console
+
+Clients App with MongoDb
+Using MongoDB Compass
 
 ## System Functionalities
 

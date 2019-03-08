@@ -24,7 +24,7 @@ public class RabbitMQConfiguration {
 	}
 
 	@Bean
-	Binding binding(Queue queue, TopicExchange clientsCitiesExchange) {
-		return BindingBuilder.bind(queue).to(clientsCitiesExchange).with(queue.getName());
+	Binding binding(Queue queue, TopicExchange topicExchange) {
+		return BindingBuilder.bind(queue).to(topicExchange).with(queue.getName());
 	}
 }

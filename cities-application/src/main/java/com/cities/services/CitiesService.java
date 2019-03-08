@@ -2,8 +2,6 @@ package com.cities.services;
 
 import java.util.Optional;
 
-import javax.persistence.EntityNotFoundException;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.cities.entities.CityEntity;
 import com.cities.models.CityDTO;
 import com.cities.repositories.CityRepository;
+import com.mongodb.MongoException;
 
 @Service
 public class CitiesService {
@@ -23,11 +22,10 @@ public class CitiesService {
 
 	public CityDTO findById(Long clientId) {
 		ModelMapper modelMapper = new ModelMapper();
-		Optional<CityEntity> clientEntity = cityRepository.findById(clientId);
-		CityDTO clientDTO = modelMapper.map(
-				clientEntity.orElseThrow(() -> new EntityNotFoundException("City not found in database.")),
-				CityDTO.class);
-		return clientDTO;
+		Optional<CityEntity> cityEntity = cityRepository.findById(clientId);
+		CityDTO cityDTO = modelMapper
+				.map(cityEntity.orElseThrow(() -> new MongoException("Client not found in database.")), CityDTO.class);
+		return cityDTO;
 	}
 
 	public void save(CityDTO cityDTO) {
