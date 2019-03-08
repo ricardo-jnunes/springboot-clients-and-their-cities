@@ -13,6 +13,7 @@ Rabbit already installed and running on ports:
 ## Accessing the Application
 
 Applications Swagger
+
 Cities App
 http://localhost:8081/swagger-ui.html#/
 
