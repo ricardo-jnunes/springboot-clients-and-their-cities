@@ -1,6 +1,8 @@
 package com.cities.services;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +25,15 @@ public class CitiesService {
 	public CityDTO findById(Long clientId) {
 		ModelMapper modelMapper = new ModelMapper();
 		Optional<CityEntity> cityEntity = cityRepository.findById(clientId);
-		CityDTO cityDTO = modelMapper
+		return modelMapper
 				.map(cityEntity.orElseThrow(() -> new MongoException("Client not found in database.")), CityDTO.class);
-		return cityDTO;
+	}
+
+	public List<CityDTO> listAll() {
+		ModelMapper modelMapper = new ModelMapper();
+		List<CityEntity> cityEntities = cityRepository.findAll();
+		return cityEntities.stream().map(source -> modelMapper.map(source, CityDTO.class))
+				.collect(Collectors.toList());
 	}
 
 	public void save(CityDTO cityDTO) {

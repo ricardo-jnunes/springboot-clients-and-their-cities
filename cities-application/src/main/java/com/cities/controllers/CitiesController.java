@@ -1,6 +1,7 @@
 package com.cities.controllers;
 
 import java.net.URI;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,6 +28,12 @@ public class CitiesController {
 	public ResponseEntity<CityDTO> findById(@PathVariable("id") Long clientId) {
 		CityDTO clientDTO = citiesService.findById(clientId);
 		return new ResponseEntity<CityDTO>(clientDTO, HttpStatus.OK);
+	}
+
+	@GetMapping("/list")
+	public ResponseEntity<List<CityDTO>> list() {
+		List<CityDTO> listAll = citiesService.listAll();
+		return new ResponseEntity<List<CityDTO>>(listAll, HttpStatus.OK);
 	}
 
 	@PostMapping("/")
